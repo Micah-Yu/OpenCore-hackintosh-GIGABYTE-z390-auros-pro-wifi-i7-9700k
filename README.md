@@ -2,7 +2,7 @@
 
 
 
-![截屏2021-01-08 上午12.09.20](/Users/micah/Documents/Hackintosh/hackintosh-finish/public/img/截屏2021-01-08 上午12.09.20.png)
+![Catalina](./img/Catalina.png)
 
 ## 主要硬件
 
@@ -53,16 +53,19 @@
 	
 	- 使用 `ProperTree` 工具，打开 `EFI/OC/config.plist` ,用生成的三码替换，最后记得保存
 	  
-	![截屏2021-01-08 上午7.50.15](/Users/micah/Documents/Hackintosh/hackintosh-finish/public/img/截屏2021-01-08 上午7.50.15.png)
-	  
+	
+	![PlatformInfo](./img/PlatformInfo.png)
+	
+	
 	
 	  
-	  
-	  
+	
 	  > 关于 `SMBIOS` 生成和替换我说的不够清楚可以参考详细说明 [PlatformInfo](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#platforminfo)
-	  
+	
 	- 最后删除USB启动盘中的EFI，用修改好的EFI替换
 	
 3. **设置BOIS**
 
    版本F12
+   
+   
