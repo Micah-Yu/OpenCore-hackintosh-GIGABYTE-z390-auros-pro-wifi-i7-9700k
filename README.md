@@ -96,3 +96,5 @@
    > 
    
    
+
+对于国内用户，下载太慢，可以去码云[OpenCore z390-auros-pro-wifi](https://gitee.com/micah-yu/open-core-hackintosh-gigabyte-z390-auros-pro-wifi-i7-9700k)
