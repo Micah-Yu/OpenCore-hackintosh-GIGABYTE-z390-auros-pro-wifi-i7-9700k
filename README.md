@@ -10,6 +10,7 @@
 
 ​	**OpenCore 版本 0.64 **
 
+
 - cpu： i7 9700k 
 - 主板： 技嘉z390-auros-pro-wifi
 - 显卡： AMD蓝宝石 RX 5500 XT
@@ -32,8 +33,10 @@
 
 
 
+-------------
 
-### 二、修改引导文件（下文提到的EFI都是指从仓库下载下来的EFI）
+
+### 二、修改引导文件
 
 #### **1. 下载EFI**
 
@@ -72,7 +75,7 @@
 
 ### 三、设置BOIS
 
-**BOIS 版本F12j** ，Bois版本不一样，有些设置所在的位置不一样，要自己找
+**BOIS 版本F12j** ，Bois版本不一样，有些设置所在的位置不一样。CFG Lock 我在F11版本中没找到，OpenCore设置文件中也可以关闭 `Kernel -> Quirks -> AppleCpuPmCfgLock & AppleXcpmCfgLock` 这两项全设为 `true`
 
 - Tweaker
   - Advanced CPU Settings
@@ -96,9 +99,18 @@
   - Windows 8/10 Features -> `Windows 8/10`
   - CSM Support -> `Disabled`
 - Save & Exit
-  - save & Exit Setup (最后一步保存退出)
+  
+  - save & Exit Setup (最后一步保存退出，重启)
+  
+  
+
+---------
 
 ### 四、开始引导安装
+
+
+
+------
 
 ### 五、 安装完成，进入macOS系统，用USB启动盘中的 `EFI` 替换macOS系统中的 `EFI`
 
@@ -106,7 +118,7 @@
 
 ## 功能情况
 
-这里只列出了部分经过我测试的，没列出来的就是没发现问题的，后续使用发现问题也会进行修复更新。当然，非常欢迎使用这套引导的朋友，提出你们使用过程中发现的问题
+这里只列出了部分经过我测试的，没列出来的就是暂时没发现问题的，后续使用发现问题也会进行修复更新。当然，非常欢迎使用这套引导的朋友，提出你们使用过程中发现的问题
 
 ### 调整好的功能
 
