@@ -51,21 +51,48 @@
 	
 	  
 	
-	- 使用 `ProperTree` 工具，打开 `EFI/OC/config.plist` ,用生成的三码替换，最后记得保存
+	- 使用 `ProperTree` 工具，打开 `EFI/OC/config.plist` ,用生成的三码替换，保存
 	  
-	
-	![PlatformInfo](./img/PlatformInfo.png)
-	
-	
-	
+	  ![PlatformInfo](./img/PlatformInfo.png)
 	  
-	
+	  
+	  
 	  > 关于 `SMBIOS` 生成和替换我说的不够清楚可以参考详细说明 [PlatformInfo](https://dortania.github.io/OpenCore-Install-Guide/config.plist/coffee-lake.html#platforminfo)
+	
+	
 	
 	- 最后删除USB启动盘中的EFI，用修改好的EFI替换
 	
 3. **设置BOIS**
 
    版本F12
+   
+   
+   
+   - **禁用:**
+   
+   |                 英文                 |                           中文                           |
+   | :----------------------------------: | :------------------------------------------------------: |
+   |              Fast Boot               |                         快速启动                         |
+   | CFG Lock (MSR 0xE2 write protection) |                CFG 锁 (MSR 0xE2 写入保护)                |
+   |                 VT-d                 | [VT-d](https://zhidao.baidu.com/question/495526512.html) |
+   |                 CSM                  |                      兼容性支持模块                      |
+   |              Intel SGX               |                        Intel SGX                         |
+   
+   ------
+   
+   - **启用:**
+   
+   |          英文           |                           中文                           |
+   | :---------------------: | :------------------------------------------------------: |
+   |          VT-x           | [VT-x](https://zhidao.baidu.com/question/495526512.html) |
+   |    Above 4G decoding    |                   大于 4G 地址空间解码                   |
+   |     Hyper Threading     |                       处理器超线程                       |
+   |   Execute Disable Bit   |                        执行禁止位                        |
+   |   EHCI/XHCI Hand-off    |                   接手 EHCI/XHCI 控制                    |
+   | OS type: Windows 8.1/10 |               操作系统类型: Windows 8.1/10               |
+   |    Legacy RTC Device    |                      传统 RTC 设备                       |
+   
+   > 
    
    
