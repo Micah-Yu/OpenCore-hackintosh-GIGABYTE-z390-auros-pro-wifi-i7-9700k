@@ -1,14 +1,10 @@
-# hackintosh OpenCore 0.64 技嘉z390-auros-pro-wifi + i7 9700k
+# hackintosh OpenCore 技嘉z390-auros-pro-wifi + i7 9700k
 
-[toc]
+
 
 ![Catalina](./img/Catalina.png)
 
 ## 主要硬件
-
-
-
-​	**OpenCore 版本 0.64 **
 
 
 - cpu： i7 9700k 
@@ -40,7 +36,7 @@
 
 #### **1. 下载EFI**
 
-#### **2. 替换下载下来的EFI中的 `SMBIOS`**
+#### **2. 替换 `SMBIOS`**
 
 - 使用 `GenSMBIOS` 工具生成三码，类似下面
 
@@ -68,6 +64,7 @@
 
 
 - 最后删除USB启动盘中的EFI，用修改好的EFI替换
+  ![EFI](img/EFI.png)
 
 
 
@@ -75,11 +72,12 @@
 
 ### 三、设置BOIS
 
-**BOIS 版本F12j** ，Bois版本不一样，有些设置所在的位置不一样。CFG Lock 我在F11版本中没找到，OpenCore设置文件中也可以关闭 `Kernel -> Quirks -> AppleCpuPmCfgLock & AppleXcpmCfgLock` 这两项全设为 `true`
+**BOIS 版本F12j** 
 
 - Tweaker
   - Advanced CPU Settings
     - VT-d 	->  `Disabled`
+  
 - Settings
   - Platform Power
     - ErP	-> `Disabled`
@@ -92,29 +90,57 @@
       - XHCI Hand-off	-> `Enabled`
     - NetWork Stack Configuration
       - Network Stack	-> `Disabled`
+  
 - System Info
+
 - Boot
   - CFG Lock -> `Disabled`
   - Fast Boot  -> `Disabled`
   - Windows 8/10 Features -> `Windows 8/10`
   - CSM Support -> `Disabled`
+  
 - Save & Exit
   
   - save & Exit Setup (最后一步保存退出，重启)
   
   
+  
+  ------------------
+  
+  
+  
+  Bois版本不一样，有些设置所在的位置不一样。CFG Lock 我在F11版本中没找到。
+  
+  如果找不到CFG Lock ，OpenCore设置文件中也可以关闭 `Kernel -> Quirks -> AppleCpuPmCfgLock & AppleXcpmCfgLock` 这两项全设为 `true`
+  
+  
 
 ---------
 
-### 四、开始引导安装
+### 四、BIOS设置u盘启动，开始引导安装
 
 
 
 ------
 
-### 五、 安装完成，进入macOS系统，用USB启动盘中的 `EFI` 替换macOS系统中的 `EFI`
+### 五、 无u盘启动
 
+现在已经成功进入系统，但是需要依靠u盘才能进入系统，所以下一步我们要进一步完善，可以不依赖u盘启动
 
+1. 进入macOS系统，打开终端，输入命令`diskutil list`, 结果大概如下
+   ![disk-list](img/disk-list.png)
+
+   
+
+2. 挂载EFI分区，`sudo diskutil mount /dev/disk1s1`
+
+   我的挂载是在`/dev/disk1` 下面的  `1` 号磁盘，所以是 `/dev/disk1s1` , 挂载情况有可能不一样，替换相应的命令
+
+   输入系统密码， 在磁盘列表就可以看见`EFI` 隐藏分区已经被挂载
+   
+
+3. 用USB启动盘中的 `EFI` 替换macOS系统中的 `EFI`
+   
 
 ## 功能情况
 
@@ -129,7 +155,7 @@
 
 ### 待完善
 
-- Wi-Fi和蓝牙不算太完美，等待 `AirportItlwm.kext` 的完善，当然这方面有需求的可以直接上免驱网卡
+- Wi-Fi和蓝牙不算太完美，隔空投送无法使用，等待 `AirportItlwm.kext` 的完善，当然这方面有需求的可以直接上免驱网卡
 
   
 
